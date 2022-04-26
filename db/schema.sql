@@ -52,8 +52,8 @@ CREATE TABLE IF NOT EXISTS styles (
   productId INT NOT NULL,
   name VARCHAR(50),
   sale_price INT,
-  original_price INT NOT NULL,
-  default_style BOOLEAN NOT NULL,
+  original_price INT,
+  default_style BOOLEAN,
   FOREIGN KEY ( productId ) REFERENCES product ( id )
 );
 COPY styles(id, productId, name, sale_price, original_price, default_style)
