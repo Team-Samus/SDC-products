@@ -3,8 +3,11 @@ const router = express.Router();
 const db = require('../db/index.js');
 
 const getProducts = router.get('/products', async (req, res) => {
-  let queryStr = `SELECT * FROM product LIMIT 5`;
-  let result = await db.query(queryStr);
+  let page = req.query.page || 1;
+  let count = req.query.count || 5;
+  let realPage = (page * count) - count;
+  let queryStr = `SELECT * FROM product OFFSET $1 LIMIT $2`;
+  let result = await db.query(queryStr, [realPage, count]);
   res.send(result.rows);
 })
 

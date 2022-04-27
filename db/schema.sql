@@ -89,3 +89,11 @@ FROM '/Users/varun/Documents/rfp2202/sdc/SDC-products/data/skus.csv'
 DELIMITER ','
 NULL AS 'null'
 CSV HEADER;
+
+-- CREATE INDEX idx_style_productId ON styles (productId);
+
+-- CREATE INDEX idx_photo_styleId ON photos (styleId);
+
+-- CREATE INDEX idx_inventory_styleId ON inventory (styleId);
+
+-- CREATE INDEX idx_related_currentId on related (current_product_id);
